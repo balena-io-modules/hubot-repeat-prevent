@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/resin-io-modules/hubot-repeat-prevent#readme",
   "dependencies": {
-    "coffee-script": "^1.12.2"
+    "coffee-script": "^1.12.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1"
   },
   "devDependencies": {
     "resin-lint": "^1.4.0"
