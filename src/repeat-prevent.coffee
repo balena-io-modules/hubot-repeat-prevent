@@ -4,6 +4,7 @@
 # Author:
 #   Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
 moment = require 'moment'
+_ = require 'lodash'
 scopes = {}
 timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
 
