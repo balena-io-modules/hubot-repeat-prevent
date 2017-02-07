@@ -21,7 +21,7 @@ module.exports = (robot) ->
 		# Extract and initialise the data we need
 		now = moment()
 		horizon = moment(now).subtract(timeout, 'minutes')
-		comment = context.response.message.text
+		comment = JSON.stringify(context.strings)
 		scope = context.response.message.metadata?.thread_id ? context.response.message.room
 		scopes[scope] ?= {}
 
