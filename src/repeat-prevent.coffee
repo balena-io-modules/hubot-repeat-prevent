@@ -17,6 +17,7 @@ module.exports = (robot) ->
 	robot.responseMiddleware (context, next, done) ->
 		now = moment()
 		horizon = moment(now).subtract(timeout, 'minutes')
+		console.log context
 		comment = context.message.text
 		scope = context.message.metadata?.thread_id ? context.message.room
 		scopes[scope] ?= {}
