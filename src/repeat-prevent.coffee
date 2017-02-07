@@ -4,6 +4,7 @@
 # Author:
 #   Andrew Lucas (sqweelygig) <andrewl@resin.io> <sqweelygig@gmail.com>
 moment = require 'moment'
+_ = require 'lodash'
 scopes = {}
 timeout = parseInt(process.env.HUBOT_PREVENT_REPEAT_TIMEOUT ? '30')
 
@@ -17,8 +18,8 @@ module.exports = (robot) ->
 	robot.responseMiddleware (context, next, done) ->
 		now = moment()
 		horizon = moment(now).subtract(timeout, 'minutes')
-		comment = context.message.text
-		scope = context.message.metadata?.thread_id ? context.message.room
+		comment = context.response.message.text
+		scope = context.response.message.metadata?.thread_id ? context.response.message.room
 		scopes[scope] ?= {}
 
 		# If the comment isn't in our memory
