@@ -18,6 +18,7 @@ module.exports = (robot) ->
 		scopeId = context.response.message.metadata?.thread_id ? context.response.message.room
 		messageTimeByScope[scopeId] ?= {}
 		scopeConsidered = messageTimeByScope[scopeId]
+		console.log(comment)
 		# Tidy the old comments
 		for comment, timestamp of scopeConsidered when timestamp.isBefore(horizon)
 			delete scopeConsidered[comment]
