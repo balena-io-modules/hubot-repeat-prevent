@@ -21,8 +21,10 @@ module.exports = (robot) ->
 		# Tidy the old comments
 		for comment, timestamp of scopeConsidered when timestamp.isBefore(horizon)
 			delete scopeConsidered[comment]
-		# Allow the response if it's not in our memory
-		if (not scopeConsidered[response]?)
+		# Allow the response if bot name is mentioned or it's not in our memory
+		botName = context.response.robot.name.toLowerCase()
+		originalComment = context.response.message.text.toLowerCase()
+		if (originalComment.includes(botName)) or (not scopeConsidered[response]?)
 			scopeConsidered[response] = now
 			next()
 		else
